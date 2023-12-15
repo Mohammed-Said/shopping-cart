@@ -8,19 +8,6 @@ const iconCartSpan = document.querySelector(".icon-cart span");
 let listProducts = [];
 let carts = [];
 //////////////////////////////////////////////////////////////////////////////////////
-overlay.addEventListener("click", () => {
-  overlay.classList.remove("show");
-  body.classList.remove("showCart");
-
-});
-iconCart.addEventListener("click", (e) => {
-  body.classList.toggle("showCart");
-  overlay.classList.add("show");
-});
-closeBtn.addEventListener("click", (e) => {
-  body.classList.remove("showCart");
-  overlay.classList.remove("show");
-});
 const addDataToHTML = () => {
   listProductsHTML.innerHTML = "";
   if (listProducts.length > 0) {
@@ -99,8 +86,7 @@ const changeQuantityCart = (id, type) => {
   let positionItemInCart = carts.findIndex((value) => value.productId == id);
   if (positionItemInCart > -1) {
     if (type === "plus")
-      carts[positionItemInCart].quantity =
-        carts[positionItemInCart].quantity + 1;
+      carts[positionItemInCart].quantity++;
     else if (type === "minus") {
       let changeQuantity = carts[positionItemInCart].quantity - 1;
       if (changeQuantity > 0) {
@@ -113,6 +99,19 @@ const changeQuantityCart = (id, type) => {
     addCartToMemory();
   }
 };
+overlay.addEventListener("click", () => {
+  overlay.classList.remove("show");
+  body.classList.remove("showCart");
+
+});
+iconCart.addEventListener("click", (e) => {
+  body.classList.toggle("showCart");
+  overlay.classList.add("show");
+});
+closeBtn.addEventListener("click", (e) => {
+  body.classList.remove("showCart");
+  overlay.classList.remove("show");
+});
 listProductsHTML.addEventListener("click", (e) => {
   if (e.target.classList.contains("addCart"))
     addToCart(e.target.parentElement.dataset.id);
@@ -160,5 +159,4 @@ document.querySelector(".btns-grid").addEventListener("click", (e) => {
   }
 });
 init();
-console.log(listProducts);
 //////////////////////////////////////////////////////////////////

@@ -148,13 +148,47 @@ body .cartTab.showCart{
 }
 .cartTab .btn{
   display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
 }
-.cartTab button{
-  background-color: #E8BC0E;
-  border: none;
-  font-family: Poppins;
-  font-weight: 500;
+.cartTab .btn button{
+  border: 1px solid #000;
   cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: .5s all ease;
+}
+.cartTab .btn button:first-child{
+  color: #fff;
+  background-color: #000;
+}
+.cartTab .btn button:last-child{
+  background-color: #fff;
+}
+.cartTab .btn button a{
+  text-decoration: none;
+  color: #000;
+}
+.cartTab .btn button:first-child:hover{
+  background-color: #fff;
+  color: #000;
+}
+.cartTab .btn button:last-child:hover{
+  background-color: #000;
+}
+.cartTab .btn button:hover a{
+  color: #fff;
+}
+.cartTab .btn button:first-child{
+  color: #fff;
+  background-color: #000;
+}
+.cartTab .btn button:last-child{
+  background-color: #fff;
+}
+.cartTab .btn button a{
+  text-decoration: none;
+  color: #000;
 }
 .listCart .item img{
   width: 100%;
